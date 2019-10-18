@@ -10,6 +10,7 @@ module.exports = {
           })
           .catch (error => {
             console.log (error);
+            formError.errorPage (res, error);
           });
     },
     getCategoryById: (req, res) => {
@@ -20,6 +21,7 @@ module.exports = {
           })
           .catch (error => {
             console.log (error);
+            formError.errorPage (res, error);
           });
     },
     postCategory: (req, res) => {
@@ -31,6 +33,7 @@ module.exports = {
           })
           .catch (error => {
             console.log (error);
+            formError.errorPage (res, error);
           });
     },
     deleteCategory: (req, res) => {
@@ -40,6 +43,7 @@ module.exports = {
             form.success(res,200,"Success Delete Category!");
         }).catch(error=>{
             console.log(error);
+            formError.errorPage (res, error);
         })
     },
     updateCategory: (req, res) => {
@@ -49,6 +53,7 @@ module.exports = {
             form.success(res,200,"Success Update Category!");
         }).catch(error=>{
             console.log(error);
+            formError.errorPage (res, error);
         })
     }
 };

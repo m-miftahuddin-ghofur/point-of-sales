@@ -2,7 +2,7 @@ const connection = require('../Configs/connect');
 const category = require('./category')
 
 const pagination = (req) => {
-    const limit = Number(req.query.perpage) || 3 ;
+    const limit = Number(req.query.perpage) || 10 ;
     const page = req.query.page || 1;
     const offset = limit * (page-1);
     
@@ -172,7 +172,7 @@ module.exports = {
                             }
                         );                    
                     }else{
-                        reject ("kurang quantity");
+                        reject ("Quantity Out Of Stock!!");
                     }
                 }else{
                     reject(err);

@@ -1,5 +1,6 @@
 const transactionModel = require('../Models/transaction');
 const form = require('../Helpers/form');
+const formError = require('../Helpers/formerror');
 
 module.exports = {
     transaction : (req,res) => {
@@ -10,6 +11,7 @@ module.exports = {
       })
       .catch (error =>{
         console.log (error);
+        formError.errorPage (res, error);
       })
     },
     transactionDetail : (req,res) => {
@@ -20,6 +22,18 @@ module.exports = {
           })
           .catch (error =>{
             console.log (error);
+            formError.errorPage (res, error);
           })
-        }
+    },
+    getTransaction : (req,res) => {
+      transactionModel
+        .getTransaction (req)
+        .then (response => {
+          form.success (res, 200, response);
+        })
+        .catch (error =>{
+          console.log (error);
+          formError.errorPage (res, error);
+        })
+      }
 }
